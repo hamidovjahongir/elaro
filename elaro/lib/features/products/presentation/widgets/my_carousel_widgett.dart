@@ -4,7 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 
 class MyCarouselWidgett extends StatelessWidget {
   final List<Datum> items;
-  MyCarouselWidgett({required this.items});
+  const MyCarouselWidgett({required this.items});
 
   @override
   Widget build(BuildContext context) {

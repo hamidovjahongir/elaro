@@ -1,6 +1,8 @@
+import 'package:elaro/features/card/presentation/bloc/card_bloc.dart';
 import 'package:elaro/features/products/data/model/products_model.dart';
 import 'package:elaro/features/products/presentation/pages/products_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ReProductList extends StatelessWidget {
   final List<Datum> products;
@@ -93,7 +95,11 @@ class ReProductList extends StatelessWidget {
                           ),
                         ),
                         Spacer(),
-                        Flexible(
+                        GestureDetector(
+                          onTap: () {
+                            context.read<CardBloc>().add(AddData(product));
+                          },
+                          child: Flexible(
                           flex: 2,
                           fit: FlexFit.tight,
                           child: Align(
@@ -117,6 +123,7 @@ class ReProductList extends StatelessWidget {
                             ),
                           ),
                         ),
+                        )
                       ],
                     ),
                   ),
