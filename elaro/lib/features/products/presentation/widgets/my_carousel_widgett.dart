@@ -11,7 +11,7 @@ class MyCarouselWidgett extends StatelessWidget {
     return Container(
       child: CarouselSlider(
         options: CarouselOptions(
-          height: 200.0,
+          height: 201.0,
           autoPlay: true,
           autoPlayInterval: Duration(seconds: 3),
           enlargeCenterPage: true,
