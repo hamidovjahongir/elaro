@@ -1,5 +1,6 @@
 import 'package:elaro/core/constants/app_color.dart';
 import 'package:elaro/features/card/presentation/pages/card_screen.dart';
+import 'package:elaro/features/categories/presentation/pages/categories_screen.dart';
 import 'package:elaro/features/home/presentation/pages/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,7 @@ class _MainPageState extends State<MainPage> {
           index: value,
           children: [
             HomeScreen(),
-            Container(color: Colors.amber,),
+            CategoriesScreen(),
             CardScreen(),
             Container(color: Colors.pink
             ,),

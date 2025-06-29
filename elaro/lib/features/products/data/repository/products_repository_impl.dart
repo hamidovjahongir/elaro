@@ -7,7 +7,7 @@ import 'package:elaro/features/products/domain/repository/products_repository.da
 class ProductsRepositoryImpl extends ProductsRepository{
   final DioClient dio;
   ProductsRepositoryImpl(this.dio);
-
+  
   @override
   Future<ProductsModel> fetchDiscountProducts()async {
     final response = await dio.dioClient.get('/products-discount');

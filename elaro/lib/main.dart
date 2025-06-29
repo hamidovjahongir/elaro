@@ -5,7 +5,7 @@ import 'package:elaro/features/card/presentation/bloc/card_bloc.dart';
 import 'package:elaro/features/main/presentation/pages/main_pages.dart';
 import 'package:elaro/features/products/presentation/blocs/product_bloc/product_bloc_bloc.dart';
 import 'package:elaro/features/products/presentation/blocs/products_bloc/products_bloc_bloc.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';   
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 
