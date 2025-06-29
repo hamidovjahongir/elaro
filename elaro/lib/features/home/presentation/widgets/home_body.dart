@@ -35,15 +35,17 @@ class _HomeBodyState extends State<HomeBody> {
               return Center(child: Text(state.error));
             }
             if (state is ProductsLoadingState) {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             }
             if (state is ProductsSuccessState) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  MyCarouselWidgett(items: state.data),
-                  SizedBox(height: 10),
+                  SizedBox(
+                    height: 200, 
+                    child: MyCarouselWidgett(items: state.data),
+                  ),
+                  const SizedBox(height: 10),
                   TitleWidget(
                     title: "Tavsiya etilgan mahsulotlar",
                     onTap: () {
@@ -56,20 +58,22 @@ class _HomeBodyState extends State<HomeBody> {
                     },
                     btnText: "Hammasi",
                   ),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
+                  
                   BlocProvider(
-                    create:
-                        (context) =>
-                            sl<ProductsBloc>()..add(ProductsFetchEvent()),
+                    create: (context) => sl<ProductsBloc>()..add(ProductsFetchEvent()),
                     child: BlocBuilder<ProductsBloc, ProductsState>(
                       builder: (context, state) {
                         if (state is ProductsFailureState) {
-                          return SizedBox();
+                          return const SizedBox();
                         }
                         if (state is ProductsSuccessState) {
-                          return ReProductList(products: state.data);
+                          return SizedBox(
+                            height: 300,
+                            child: ReProductList(products: state.data),
+                          );
                         }
-                        return Center(
+                        return const Center(
                           child: CircularProgressIndicator(
                             color: AppColor.primary,
                           ),
@@ -77,28 +81,29 @@ class _HomeBodyState extends State<HomeBody> {
                       },
                     ),
                   ),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
+                  
                   TitleWidget(
                     title: "Chegirmadagi mahsulotlar",
                     onTap: () {},
                     btnText: "Hammasi",
                   ),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
 
                   BlocProvider(
-                    create:
-                        (context) =>
-                            sl<ProductsBloc>()
-                              ..add(ProductsFetchDiscountEvent()),
+                    create: (context) => sl<ProductsBloc>()..add(ProductsFetchDiscountEvent()),
                     child: BlocBuilder<ProductsBloc, ProductsState>(
                       builder: (context, state) {
                         if (state is ProductsFailureState) {
                           return Center(child: Text(state.error.toString()));
                         }
                         if (state is ProductsSuccessState) {
-                          return ReProductList(products: state.data);
+                          return SizedBox(
+                            height: 300, 
+                            child: ReProductList(products: state.data),
+                          );
                         }
-                        return Center(
+                        return const Center(
                           child: CircularProgressIndicator(
                             color: AppColor.primary,
                           ),
@@ -106,7 +111,7 @@ class _HomeBodyState extends State<HomeBody> {
                       },
                     ),
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                 ],
               );
             }

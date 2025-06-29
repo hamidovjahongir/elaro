@@ -10,8 +10,7 @@ class ReProductList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 350,
+    return SizedBox(
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         separatorBuilder: (context, index) => SizedBox(width: 12),
@@ -66,7 +65,7 @@ class ReProductList extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 8),
                   SizedBox(
                     width: MediaQuery.sizeOf(context).width / 100 * 44,
                     child: Text(
@@ -83,9 +82,10 @@ class ReProductList extends StatelessWidget {
                   Spacer(),
                   SizedBox(
                     width: MediaQuery.sizeOf(context).width / 100 * 50,
+
                     child: Row(
                       children: [
-                        Flexible(
+                        Expanded(
                           flex: 4,
                           child: Text(
                             product.price,
@@ -94,36 +94,29 @@ class ReProductList extends StatelessWidget {
                             style: TextStyle(fontSize: 16, color: Colors.black),
                           ),
                         ),
-                        Spacer(),
+                        SizedBox(width: 8),
                         GestureDetector(
                           onTap: () {
                             context.read<CardBloc>().add(AddData(product));
                           },
-                          child: Flexible(
-                          flex: 2,
-                          fit: FlexFit.tight,
-                          child: Align(
-                            alignment: Alignment.centerRight,
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  width: 2,
-                                  color: Colors.deepOrange,
-                                ),
-                                borderRadius: BorderRadius.circular(10),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                width: 2,
+                                color: Colors.deepOrange,
                               ),
-                              child: Padding(
-                                padding: EdgeInsets.all(8),
-                                child: Icon(
-                                  Icons.shopping_cart_outlined,
-                                  color: Colors.black,
-                                  size: 26,
-                                ),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(8),
+                              child: Icon(
+                                Icons.shopping_cart_outlined,
+                                color: Colors.black,
+                                size: 26,
                               ),
                             ),
                           ),
                         ),
-                        )
                       ],
                     ),
                   ),

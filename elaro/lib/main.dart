@@ -7,19 +7,21 @@ import 'package:elaro/features/products/presentation/blocs/product_bloc/product_
 import 'package:elaro/features/products/presentation/blocs/products_bloc/products_bloc_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 
 final LocalCardRepository repository = LocalCardRepository();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Hive.initFlutter();
+  Hive.registerAdapter(CardModeAdapter());
+  Hive.registerAdapter(AttributeAdapter());
+  Hive.registerAdapter(RasimAdapter());
+
   await serviceLocator();
   await repository.getInstance();
-  await Hive.initFlutter();
-   Hive.registerAdapter(CardModeAdapter());
-   Hive.registerAdapter(AttributeAdapter());
-   Hive.registerAdapter(RasimAdapter());
+
   runApp(const MainApp());
 }
 
