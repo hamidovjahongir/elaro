@@ -16,35 +16,42 @@ class _CategorieWidgetState extends State<CategorieWidget> {
   @override
   Widget build(BuildContext context) {
     print(widget.data);
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          
-          Row(
-            spacing: 10,
+    return Column(
+      children: [
+        SizedBox(height: 20),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SizedBox(
-                width: 30,
-                height: 30,
-                child: Image.network(widget.data.data.image, fit: BoxFit.cover),
+              Row(
+                spacing: 10,
+                children: [
+                  SizedBox(
+                    width: 30,
+                    height: 30,
+                    child: Image.network(
+                      widget.data.data.image,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  Text(
+                    widget.data.data.nameUz,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: AppColor.black,
+                    ),
+                  ),
+                ],
               ),
-              Text(
-                widget.data.data.nameUz,
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  color: AppColor.black,
-                ),
+              Icon(
+                Icons.arrow_forward_ios_outlined,
+                color: AppColor.black.withOpacity(0.4),
               ),
             ],
           ),
-          Icon(
-            Icons.arrow_forward_ios_outlined,
-            color: AppColor.black.withOpacity(0.4),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

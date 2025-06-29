@@ -99,14 +99,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             );
           },
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            context.read<CategorieBloc>().add(GetCategoriesEvent());
-          },
-          child: Icon(Icons.refresh),
-          backgroundColor: Colors.amber,
         ),
-      ),
     );
   }
 }
